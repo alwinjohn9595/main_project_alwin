@@ -7,15 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./alumini-login.component.css']
 })
 export class AluminiLoginComponent implements OnInit {
-
+    
     hide=true;
-
+    
+  
   constructor(private fb:FormBuilder,
     // private auth: AuthService,
     private routes:Router) { }
     
     loginForm = this.fb.group({
-
+    
+      
 
       email:['',[Validators.required,Validators.pattern(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       password:['',[Validators.required,Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)]],
@@ -36,6 +38,7 @@ export class AluminiLoginComponent implements OnInit {
 
 
       get loginFormControl() {
+      
         return this.loginForm.controls;
       }  
 
@@ -44,15 +47,16 @@ export class AluminiLoginComponent implements OnInit {
       }
          
   ngOnInit(): void {
+    console.log(this)
   }
 
   loginUser () {
-    console.log("hai")
+    
     this.routes.navigate(['/alumini/home'])
   } 
 
   signupUser() {
-    console.log("hai heloo")
+    
     this.routes.navigate(['/alumini/home'])
   }
 }
