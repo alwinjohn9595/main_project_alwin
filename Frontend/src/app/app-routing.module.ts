@@ -1,12 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AluminiHomeComponent } from './alumini-home/alumini-home.component';
-import { AluminiLoginComponent } from './alumini-login/alumini-login.component';
-import { AluminiSignupComponent } from './alumini-signup/alumini-signup.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminComponent } from './admin/admin.component';
+import { AluminiComponent } from './alumini/alumini.component';
+import { AlumniHomeComponent } from './alumni-home/alumni-home.component';
+import { AppComponent } from './app.component';
+import { EditFacultyComponent } from './edit-faculty/edit-faculty.component';
+import { EmployerHomeComponent } from './employer-home/employer-home.component';
+import { EmployerLoginComponent } from './employer-login/employer-login.component';
+import { EmployerComponent } from './employer/employer.component';
 
-const routes: Routes = [{path:"alumini/signup",component:AluminiSignupComponent},
-{path:"alumini/login",component:AluminiLoginComponent},
-{path:"alumini/home",component:AluminiHomeComponent}];
+import { IndexComponent } from './index/index.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+const routes: Routes = [
+  {path:"",component:IndexComponent},
+  {path:"about",component:AboutusComponent},
+  {path:"alumini",component:AluminiComponent},
+  {path:"employer",component:EmployerComponent},
+  
+  {path:"admin",component:AdminComponent},
+  {path:"admin/home",component:AdminHomeComponent},
+  {path:"employer/login",component:EmployerLoginComponent},
+  {path:"employer/home",component:EmployerHomeComponent},
+  {path:"admin/editfaculty",component:EditFacultyComponent},
+
+  {path:"alumni/home",component:AlumniHomeComponent}
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

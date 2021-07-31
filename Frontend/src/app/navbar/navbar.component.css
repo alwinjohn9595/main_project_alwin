@@ -1,17 +1,29 @@
-.fluid-container { 
-    height:10%;
-    background-color:#ffffff;
+.navbar-links a {
+    margin-right: 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
   }
-  .nav-item{
-    flex-wrap: wrap;
-    padding-left: 10px;
-    padding-top: 5px;
-  }
-  .navbar-brand{
-    font-weight: 500;
-    font-size: 1.5em;
-  }  
-  .navbar{
-    background-color: #000000;
-  }
-  
+
+ .spacer{
+     flex: 1 1 auto;
+ } 
+ #Name{
+     font-size: 1.6em !important;
+ }
+
+ mat-toolbar {
+    
+    position: fixed;
+    z-index: 100;
+    width: 100%  !important;
+    background-color: transparent;
+    color: #ffffff;
+    
+} 
+
+.container-fluid{
+    
+    background-color: #4158D0;
+   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    height: 100%;
+ }
