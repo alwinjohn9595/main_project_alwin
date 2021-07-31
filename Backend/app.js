@@ -7,7 +7,8 @@ const alumnidata = require('./model/alumnidata')
 
 require("./db/connect")
 const app = new express();
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const Jobdata = require('./model/jobdata');
 
 
 
@@ -236,6 +237,70 @@ app.put("/alumni/save",async(req,res)=>{
     })
 
 //-----Almni Verifcation  ends
+
+
+
+
+// ------------JOB SECTION STARTS------------------- 
+
+
+app.post('/postjob',async(req,res)=>{
+
+    console.log(req.body);
+
+const user = req.body;
+
+console.log(user);
+const newUser = new Jobdata(user);
+try{
+    await newUser.save();
+    res.status(201).json(newUser);
+} catch (error){
+    res.status(409).json({ message: error.message});     
+}
+
+})
+
+
+app.get("/getjobs",async(req,res)=>{
+    
+
+    
+        Jobdata.find()
+        .then(function(products){
+            res.send(products);
+        
+        });
+    
+})
+
+
+app.post("/applyjob",async(req,res)=>{
+    
+
+    
+    console.log(req.body);
+
+    const user = req.body;
+    
+    console.log(user);
+    const newUser = new Jobdata(user);
+    try{
+        await newUser.save();
+        res.status(201).json(newUser);
+    } catch (error){
+        res.status(409).json({ message: error.message});     
+    }
+
+})
+
+
+
+
+// ------------JOB SECTION STARTS------------------- 
+
+
+
 
 app.listen(3000, function () {
     console.log('listening to port 3000');

@@ -29,6 +29,8 @@ import { AlumniHomeComponent } from './alumni-home/alumni-home.component';
 import { AlumniService } from './alumni.service';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { ApplyJobComponent } from './apply-job/apply-job.component';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { AuthGuard } from './auth.guard';
     FacultyHomeComponent,
     AddFacultyComponent,
     EditFacultyComponent,
-    AlumniHomeComponent
+    AlumniHomeComponent,
+    ApplyJobComponent
   ],
   imports: [
     BrowserModule,
