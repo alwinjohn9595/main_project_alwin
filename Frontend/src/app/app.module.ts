@@ -30,6 +30,7 @@ import { AlumniService } from './alumni.service';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { ApplyJobComponent } from './apply-job/apply-job.component';
+import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ApplyJobComponent } from './apply-job/apply-job.component';
     AddFacultyComponent,
     EditFacultyComponent,
     AlumniHomeComponent,
-    ApplyJobComponent
+    ApplyJobComponent,
+    AppliedJobsComponent
   ],
   imports: [
     BrowserModule,

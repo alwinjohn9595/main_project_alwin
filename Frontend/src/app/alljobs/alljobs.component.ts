@@ -20,7 +20,8 @@ jobs=[{  jobrole:'',
     skill:'',
     experience:'',
     jobtype:'',
-    cname:''
+    cname:'',
+    _id:''
 }]
 
 
@@ -42,6 +43,22 @@ jobs=[{  jobrole:'',
     localStorage.setItem("jobemail", data.email.toString());
     this.routes.navigate(['applyjob']);
   }
- 
+ view(data:any){
+  localStorage.setItem("jobId", data._id.toString());
+   this.routes.navigate(['/applicant'])
+ }
+
+
+ delete(data:any){
+        this._job.deletejobpost(data)
+        .subscribe((data:any) => {
+          
+          this.jobs = this.jobs.filter(p => p !== data);
+          
+      })
+      alert("success")
+      this.ngOnInit();
+
+ }
 
 }

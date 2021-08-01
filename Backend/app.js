@@ -9,6 +9,7 @@ require("./db/connect")
 const app = new express();
 const jwt = require('jsonwebtoken');
 const Jobdata = require('./model/jobdata');
+const ApplyJobdata = require('./model/ApplyJobData');
 
 
 
@@ -284,7 +285,7 @@ app.post("/applyjob",async(req,res)=>{
     const user = req.body;
     
     console.log(user);
-    const newUser = new Jobdata(user);
+    const newUser = new ApplyJobdata(user);
     try{
         await newUser.save();
         res.status(201).json(newUser);
@@ -294,6 +295,71 @@ app.post("/applyjob",async(req,res)=>{
 
 })
 
+app.delete('/deletejobpost/:id',(req,res)=>{
+
+                id = req.params.id;
+            Jobdata.findByIdAndDelete({"_id":id})
+            .then(()=>{
+                console.log('success')
+                
+            })
+
+
+            ApplyJobdata.findByIdAndDelete({"job_id":id})
+            .then(()=>{
+                console.log('success')
+                res.send();
+            })
+
+})
+
+
+
+
+app.get("/applicant/:id",async(req,res)=>{
+    
+    console.log(req.params.id);
+
+    const user = req.params.id;
+    
+    console.log(user);
+    ApplyJobdata.find({job_id:user})
+        .then(function (alumni) {
+
+            console.log(alumni);
+            res.send(alumni);
+        });
+   
+
+})
+
+app.put('/verifyalumni/save',async(req,res)=>{
+    console.log(req.body)
+    let user = await ApplyJobdata.findById(req.body.job_id);
+    user = req.body;
+    console.log(user);
+    console.log("hai");
+    const editUser = new ApplyJobdata(user);
+    console.log(editUser)
+    try{
+        await ApplyJobdata.updateOne({job_id: req.body.job_id}, editUser);
+        res.status(201).json(editUser);
+    } catch (error){
+        res.status(409).json({ message: error.message});     
+    }
+
+})
+
+
+app.delete("/deleteapplicant/:id",(req,res)=>{
+    id=req.params.id
+    console.log(id)
+    ApplyJobdata.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+})
 
 
 

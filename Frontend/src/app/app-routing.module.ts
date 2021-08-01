@@ -6,6 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AluminiComponent } from './alumini/alumini.component';
 import { AlumniHomeComponent } from './alumni-home/alumni-home.component';
 import { AppComponent } from './app.component';
+import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
 import { ApplyJobComponent } from './apply-job/apply-job.component';
 import { EditFacultyComponent } from './edit-faculty/edit-faculty.component';
 import { EmployerHomeComponent } from './employer-home/employer-home.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:"admin/editfaculty",component:EditFacultyComponent},
 
   {path:"alumni/home",component:AlumniHomeComponent},
-  {path:"applyjob",component:ApplyJobComponent}
+  {path:"applyjob",component:ApplyJobComponent},
+  {path:'applicant',component:AppliedJobsComponent}
 
 
 ];
